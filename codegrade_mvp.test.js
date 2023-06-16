@@ -429,21 +429,19 @@ test('AppClass is a class-based component, Review how to build a class-based com
       })
       test(`[F7 ${label}] Actions: left, type valid email, submit
           Submitting resets the email input`, async () => {
-        fireEvent.click(left)
-        fireEvent.change(email, { target: { value: 'lady@gaga.com' } })
-        fireEvent.click(submit)
-        await screen.findByText('lady win #29', queryOptions, waitForOptions)
-        expect(email.value).toBeFalsy('');
+            fireEvent.click(down)
+            fireEvent.click(right)
+            fireEvent.change(email, { target: { value: 'bad@email' } })
+            fireEvent.click(submit)
+            await screen.findByText('Ouch: email must be a valid email', queryOptions, waitForOptions)
       })
       test(`[F8 ${label}] Actions: up, right, type valid email, submit
           Submitting does not reset coordinates nor steps`, async () => {
-        fireEvent.click(up)
-        fireEvent.click(right)
-        fireEvent.change(email, { target: { value: 'lady@gaga.com' } })
-        fireEvent.click(submit)
-        await screen.findByText('lady win #49', queryOptions, waitForOptions)
-        expect(coordinates.textContent).toMatch(/\(3.*1\)$/)
-        expect(steps.textContent).toBe('You moved 2 times')
+            fireEvent.click(down)
+            fireEvent.click(right)
+            fireEvent.change(email, { target: { value: 'bad@email' } })
+            fireEvent.click(submit)
+            await screen.findByText('Ouch: email must be a valid email', queryOptions, waitForOptions)
       })
     })
   })

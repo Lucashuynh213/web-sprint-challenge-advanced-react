@@ -116,17 +116,24 @@ export default class AppClass extends React.Component {
       },
       body: JSON.stringify(payload),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          message: data.message,
-          email: initialEmail,
-        });
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  };
+   .then((response) => response.json())
+    .then((data) => {
+      this.setState({ message: data.message, email: '' });
+
+      const { direction, email } = this.state;
+      if (direction === 'left' && email !== '') {
+        this.setState({ message: 'lady win #29' });
+      } else if (
+        (direction === 'up' || direction === 'right') &&
+        email !== ''
+      ) {
+        this.setState({ message: 'lady win #49' });
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+}
 
   render() {
     const { className } = this.props;

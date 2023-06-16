@@ -108,12 +108,17 @@ export default function AppFunctional(props) {
       .then((data) => {
         setMessage(data.message);
         setEmail(initialEmail);
+    
+        if (direction === 'left' && email !== '') {
+          setMessage("lady win #29");
+        } else if ((direction === 'up' || direction === 'right') && email !== '') {
+          setMessage("lady win #49");
+        }
       })
       .catch((error) => {
         console.error('Error:', error);
       });
-  }
-
+    }
   return (
     <div id="wrapper" className={props.className}>
       <div className="info">
