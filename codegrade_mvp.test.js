@@ -433,7 +433,7 @@ test('AppClass is a class-based component, Review how to build a class-based com
         fireEvent.change(email, { target: { value: 'lady@gaga.com' } })
         fireEvent.click(submit)
         await screen.findByText('lady win #29', queryOptions, waitForOptions)
-        expect(email.value).toBeFalsy()
+        expect(email.value).toBeFalsy('');
       })
       test(`[F8 ${label}] Actions: up, right, type valid email, submit
           Submitting does not reset coordinates nor steps`, async () => {
