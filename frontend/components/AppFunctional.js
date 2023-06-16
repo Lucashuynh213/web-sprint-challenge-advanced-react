@@ -107,6 +107,7 @@ export default function AppFunctional(props) {
       .then((response) => response.json())
       .then((data) => {
         setMessage(data.message);
+        setEmail(initialEmail);
       })
       .catch((error) => {
         console.error('Error:', error);
