@@ -123,9 +123,8 @@ export default function AppFunctional(props) {
     <div id="wrapper" className={props.className}>
       <div className="info">
         <h3 id="coordinates">{getXYMessage()}</h3>
-        <h3 id="steps">You moved {steps} times</h3>
-        <h3 id="steps">You moved {steps} time</h3>
-      </div>
+        <h3 id="steps">You moved {steps} {steps === 1 ? 'time' : 'times'}</h3>
+    </div>
       <div id="grid">
         {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((idx) => (
           <div key={idx} className={`square${idx === index ? ' active' : ''}`}>
